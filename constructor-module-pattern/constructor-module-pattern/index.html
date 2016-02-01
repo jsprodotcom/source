@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8" />
+
+	<title>Constructor Module Design Pattern</title>
+
+	<style type="text/css">
+	
+	html, body
+	{
+		margin:0;
+		padding:0;
+		background:#fff;
+		color:#000;
+		font:normal normal normal 100%/1.5 sans-serif;
+	}
+	body
+	{
+		padding:20px;
+	}
+	.question
+	{
+		float:left;
+		margin:0 20px 20px 0;
+		width:200px;
+		height:150px;
+		padding:10px;
+		background:lightpink;
+		border:3px solid crimson;
+	}
+	.question.ready
+	{
+		background:lightgreen;
+		border-color:green;
+	}
+	
+	</style>
+
+</head>
+<body>
+
+	<div id="Question-A1" class="question">
+		<p><strong>Question A1</strong></p>
+	</div>
+
+	<div id="Question-A2" class="question">
+		<p><strong>Question A2</strong></p>
+	</div>
+
+	<div id="Question-A3" class="question">
+		<p><strong>Question A3</strong></p>
+	</div>
+
+	<script type="text/javascript" src="Widget.js"></script>
+	<script type="text/javascript" src="DeveloperInterface.js"></script>
+	<script type="text/javascript">
+	(function()
+	{
+		
+		//instantiate A1 and A2, but leave A3 uninstantiated
+		//to demonstrate how the global click event won't apply 
+		
+		var a1 = new Widget.DeveloperInterface("A1");
+		a1.load("This is a question");
+		
+		var a2 = new Widget.DeveloperInterface("A2");
+		a2.load("This is another question");
+
+	})();	
+	</script>
+
+</body>
+</html>

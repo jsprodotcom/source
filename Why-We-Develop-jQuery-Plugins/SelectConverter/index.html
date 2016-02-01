@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Demo Page</title>
+        <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+        <script src="jquery.selectConvert.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#menu').selectConvert({color:'red'});
+                $('#menu2').selectConvert({indentMark : '@'});
+            });
+        </script>
+    </head>
+    <body>
+
+        <ul id="menu">
+            <li><a href="home">Home</a></li>
+            <li><a href="about">About </a>
+                <ul>
+                        <li><a href="team">Team</a></li>
+                        <li><a href="background">Background</a></li>
+                </ul>
+            </li>
+            <li><a href="services">Services</a>
+            <li><a href="contact">Contact us</a></li>
+        </ul>
+
+
+        <ul id="menu2">
+            <li><a href="home">Home</a></li>
+            <li><a href="advertise">Advertise</a></li>
+            <li><a href="write">Write for Us</a>
+                <ul>
+                    <li><a href="articles">Articles</a></li>
+                    <li><a href="tutorials">Tutorials</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+
+
+    </body>
+</html>
+

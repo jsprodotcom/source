@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="todoApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/>
+<style>
+.center-grey{
+       background:#f2f2f2;
+       margin-top:20;
+}
+.top-buffer {
+    margin-top:20px; 
+}
+button{
+    display: block; 
+    width: 100%;
+}
+</style>
+<script type="text/javascript" src="js/app.js"></script>
+<title>Angular Todo Note App</title>
+</head>
+<body>
+       <div class="container center-grey" ng-controller="TodoController">
+        <div class="row top-buffer" >
+              <span class="col-md-3"></span>
+              <span class="col-md-5">
+                     <input class="form-control" type="text" ng-model="note" placeholder="Add a note here"/> 
+        </span>
+        <span class="col-md-1">
+          <button ng-click="createNote()" class="btn btn-success">Add</button>
+        </span>
+              </span>
+              <span class="col-md-3"></span>
+        </div>
+        <div class="row top-buffer" >
+              <span class="col-md-3"></span>
+              <span class="col-md-6">
+                    <ul class="list-group">
+                                  <li ng-repeat="note in notes track by $index" class="list-group-item">
+                                         <span>{{note|truncate:20}}</span>
+                                  </li>
+                    </ul>
+              </span>
+              <span class="col-md-3"></span>
+        </div>
+     </div>
+</body>
+</html>

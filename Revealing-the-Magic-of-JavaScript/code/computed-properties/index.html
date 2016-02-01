@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script>
+
+            Function.prototype.computed = function() {
+                return { computed: true, func: this };
+            };
+
+            var Computize = function(obj) {
+                for(var prop in obj) {
+                    if(typeof obj[prop] == 'object' && obj[prop].computed === true) {
+                        var func = obj[prop].func;
+                        delete obj[prop];
+                        Object.defineProperty(obj, prop, {
+                            get: func,
+                            set: func
+                        });
+                    }
+                }
+                return obj;
+            }
+
+            var User = Computize({
+                firstName: 'Tony',
+                lastName: 'Stark',
+                name: function() {
+                    if(arguments.length > 0) {
+                        var parts = arguments[0].toString().split(/ /);
+                        this.firstName = parts[0];
+                        this.lastName = parts[1] ? parts[1] : this.lastName;
+                    }
+                    return this.firstName + ' ' + this.lastName;
+                }.computed()
+            });
+
+            console.log(User.name); // Tony Stark
+            User.name = 'Krasimir Tsonev';
+            console.log(User.firstName); // Krasimir
+            console.log(User.lastName); // Tsonev
+            console.log(User.name); // Krasimir Tsonev 
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

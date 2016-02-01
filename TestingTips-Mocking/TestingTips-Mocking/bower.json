@@ -1,0 +1,12 @@
+{
+  "name": "AngularJS Testing Tips - Mocking",
+  "dependencies": {
+    "angular": "~1.3.0",
+    "angular-animate": "~1.3.0",
+    "angular-resource": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "angular-mocks": "~1.3.0",
+    "jasmine": "~2.0.0",
+    "toastr": "~2.0.3"
+  }
+}

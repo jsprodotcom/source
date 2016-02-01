@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script data-require="knockout@3.0.0" data-semver="3.0.0" src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
+  <script src="ko-mapping.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <title>KnockoutJS Data Binding</title>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+        <th>Name</th>
+        <th>OS</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: phones">
+      <tr>
+        <td><a href="#" data-bind="click: $parent.removePhone">Remove</a>
+        </td>
+        <td data-bind="text: name"></td>
+        <td data-bind="text:os"></td>
+        <td data-bind="text:price"></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <h3>Add a new Phone</h3>
+  <form data-bind="submit:addPhone">
+    <input type="text" data-bind="value:currentPhone.name,valueUpdate:'input'" placeholder="Phone Name" /> <br/>
+    <input type="text" data-bind="value:currentPhone.os,valueUpdate:'input'" placeholder="OS" /> <br/>
+    <input type="text" data-bind="value:currentPhone.price,valueUpdate:'input'" placeholder="Price" /><br/>
+    <button type="submit">Add</button>
+  </form>
+</body>
+
+</html>

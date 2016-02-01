@@ -1,0 +1,66 @@
+body {
+    padding-top: 61px;
+}
+
+.navbar-header a.navbar-brand {
+    margin-top: -15px;
+    margin-bottom: -20px;
+}
+
+.navbar-header a.navbar-brand h6 {
+    color: #ccc;
+}
+
+footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer p {
+    border-top: 1px solid #d7e0e2;
+}
+
+.navbar-form .form-group {
+    margin-left: 10px;
+}
+
+.navbar-form button {
+    margin-left: 10px;
+}
+
+.thumbnail {
+    box-shadow: 1px 1px 1px 1px #DBDBDB;
+    padding-bottom: 20px;
+}
+
+.thumbnail:hover {
+    box-shadow: 2px 2px 2px 2px #7f7f7f;
+}
+
+.thumbnail .caption {
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Trebuchet MS';
+}
+
+.right {
+    clear: right;
+    float: right;
+}
+
+.rowMargin {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.voting-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 800px;
+    height: 300px
+}

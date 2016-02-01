@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8" />
+
+	<title>Demo 5: Final Prototype</title>
+	
+	<style type="text/css">
+	
+		*
+		{
+			margin:0;
+			padding:0;
+		}
+		html, body
+		{
+			font:normal normal normal 100% sans-serif;
+			background:#ddd;
+			color:#444;
+		}
+		body
+		{
+			font-size:0.625em;
+		}
+		
+		#board
+		{
+			position:relative;
+			
+			display:block;
+			width:720px;
+			height:480px;
+			margin:24px auto 0 auto;
+		
+			border-radius:2px;
+
+			background:#fff;
+			
+			box-shadow:0 0 16px -2px rgba(0,0,0, 0.5);
+		}
+		
+		#ball
+		{
+			position:absolute;
+			left:50%;
+			top:50%;
+			
+			display:block;
+			width:36px;	
+			height:36px;
+			margin:-18px 0 0 -18px;
+			
+			border-radius:18px;
+			
+			background:rgb(153,153,153);
+		
+			box-shadow:inset 0 0 0 2px rgba(0,0,0, 0.35), 4px 10px 10px rgba(0,0,0, 0.15); 
+			
+			-moz-transition:all 5s ease;
+			-ms-transition:all 5s ease;
+			-o-transition:all 5s ease;
+			-webkit-transition:all 5s ease;
+			transition:all 5s ease;
+		}
+		
+		.target
+		{
+			position:absolute;
+			
+			display:block;
+			
+			border-radius:36px;
+
+			box-shadow:
+				inset 0 -4px 2px 6px rgba(0,0,0, 0.035), 
+				inset 0 4px 2px 4px rgba(255,255,255, 0.125), 
+				inset 0 0 0 3px rgba(0,0,0, 0.05), 
+				0 -1px 0 3px rgba(0,0,0, 0.065),
+				0 1px 0 2px rgba(0,0,0, 0.025);
+		}
+		
+	</style>
+
+</head>
+<body>
+
+	<div id="board">
+	
+		<span id="ball"></span>
+	
+	</div>
+	
+	<script type="text/javascript">
+	(function()
+	{
+		
+		var 
+		ball = document.getElementById('ball'),
+		positions = 
+		{
+			37	: ['left', '0'],
+			38	: ['top', '0'],
+			39	: ['left', '100%'],
+			40	: ['top', '100%']
+		},
+		colors = 
+		{
+			37	: '255,0,0',
+			38	: '255,255,0',
+			39	: '0,0,255',
+			40	: '0,255,255'
+		};
+	
+		document.addEventListener('keydown', function(e, data)
+		{
+			if(data = positions[e.keyCode])
+			{
+				ball.style[data[0]] = data[1];
+				ball.style.backgroundColor = 'rgb(' + colors[e.keyCode] + ')';
+				
+				e.preventDefault();
+			}		
+			
+		}, false);
+	
+
+
+		var targets = 
+		[
+			{ "color" : [220,180,40], "coords" : [5,5,12,35] }, 
+			{ "color" : [210,80,80], "coords" : [45,2.5,10,40] }, 
+			{ "color" : [160,90,60], "coords" : [65,5,20,20] }, 
+			{ "color" : [100,100,150], "coords" : [2.5,75,35,15] }, 
+			{ "color" : [150,70,100], "coords" : [55,65,10,20] }, 
+			{ "color" : [70,230,150], "coords" : [87.5,60,10,20] } 
+		];
+		
+		for(var len = targets.length, i = 0; i < len; i ++)
+		{
+			var target = document.createElement('div');
+			target.className = 'target';
+			
+			target.style.left = targets[i].coords[0] + '%';
+			target.style.top = targets[i].coords[1] + '%';
+			target.style.width = targets[i].coords[2] + '%';
+			target.style.height = targets[i].coords[3] + '%';
+			target.style.backgroundColor = 'rgb(' + targets[i].color.join(',') + ')';
+			
+			targets[i].target = ball.parentNode.insertBefore(target, ball);
+		}
+		
+		
+		var tracking = window.setInterval(function()
+		{
+			var ballcolor = window.getComputedStyle(ball).backgroundColor.replace(/[^0-9,]/g, '').split(',');
+			for(var n = 0; n < 3; n++)
+			{
+				ballcolor[n] = parseInt(ballcolor[n], 10);
+			}
+		
+			for(var i = 0; i < targets.length; i ++)
+			{
+				if
+				(
+					ball.offsetLeft > targets[i].target.offsetLeft
+					&&
+					ball.offsetLeft + ball.offsetWidth < targets[i].target.offsetLeft + targets[i].target.offsetWidth
+					&&
+					ball.offsetTop > targets[i].target.offsetTop
+					&&
+					ball.offsetTop + ball.offsetHeight < targets[i].target.offsetTop + targets[i].target.offsetHeight
+				)
+				{
+					var match = 0;
+					for(var n = 0; n < 3; n ++)
+					{
+						if(Math.abs(ballcolor[n] - targets[i].color[n]) < 40)
+						{
+							match ++;
+						}
+					}
+					
+					if(match === 3)
+					{
+						targets[i].target.parentNode.removeChild(targets[i].target);
+						targets.splice(i, 1);
+
+						if(targets.length === 0)
+						{
+							window.clearInterval(tracking);
+							
+							window.setTimeout(function(){ alert('Yay!'); }, 250);
+						}
+					}
+				}
+			}
+		
+		}, 62.5);
+
+	})();
+	</script>
+	
+</body>
+</html>

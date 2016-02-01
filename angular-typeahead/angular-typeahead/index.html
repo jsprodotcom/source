@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="http://code.angularjs.org/1.2.9/angular.min.js" type="text/javascript"></script>
+<link href="css/app.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="js/app.js"></script>
+<title>Angular TypeAhead App</title>
+</head>
+<body>
+   <div class="container" ng-controller="TypeAheadController">
+	<h1>TypeAhead Using AngularJS</h1>
+	<typeahead items="items" prompt="Start typing a US state" title="name" subtitle="abbreviation" model="name" on-select="onItemSelected()" />
+   </div>
+</body>
+</html>

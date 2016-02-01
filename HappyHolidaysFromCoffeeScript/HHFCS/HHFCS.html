@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+   <head>
+      <title>
+         Happy Holidays from CoffeeScript
+      </title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+      <script src="HHFCS.js">
+      </script>
+
+      <script src="Snowflake.js">
+      </script>
+   </head>
+
+   <body style="text-align: center; background-image: url('stripes.png'); 
+                background-repeat: repeat">
+      <img src="title.png">
+
+      <script>
+         var DELAY = 40;
+         HHFCS.init(DELAY);
+         setInterval("HHFCS.draw()", DELAY);
+      </script>
+   </body>
+</html>

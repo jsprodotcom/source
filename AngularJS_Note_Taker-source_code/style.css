@@ -1,0 +1,71 @@
+@import url(http://fonts.googleapis.com/css?family=The+Girl+Next+Door);
+ * {
+  font-family: 'The Girl Next Door', cursive;
+}
+.title {
+  text-align: center;
+}
+notepad {
+  display: block;
+  width: 500px;
+  padding: 10px 10px;
+  margin: auto;
+}
+.note-area {
+  height: 450px;
+  background: url("http://extremecss.com/demos/paper.jpg") center center no-repeat;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+body {
+  background: #f2f2f2;
+}
+#editor {
+  padding: 10px;
+  font-weight: bold;
+  padding-left: 40px;
+  font-size: 20px;
+}
+span a {
+  display: block;
+  margin-top: 10px;
+  border-top: 1px solid #96d1f8;
+  background: #65a9d7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+  background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+  background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+  background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+  background: -o-linear-gradient(top, #3e779d, #65a9d7);
+  padding: 10px 20px 5px 20px;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+  -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+  color: white;
+  font-size: 17px;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 90px;
+  text-align: center;
+}
+span a: hover {
+  border-top-color: #28597a;
+  background: #28597a;
+  color: #ccc;
+}
+span a: active {
+  border-top-color: #1b435e;
+  background: #1b435e;
+}
+ul li {
+  list-style-type: none;
+}
+ul li a {
+  display: block;
+  color: #222222;
+  font-weight: bold;
+  font-size: 22px;
+}

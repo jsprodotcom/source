@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script>
+            window.onload = function() {
+
+                var dataMockup = ['John', 'Steve', 'David'];
+                var body = document.querySelector('body');
+                var ajaxWrapper = {
+                    get: function(path, cb) {
+                        console.log(path + ' requested');
+                        cb(dataMockup);
+                    }
+                }
+
+                var displayUsers = function(domEl, ajax) {
+                    ajax.get('/api/users', function(users) {
+                        var html = '';
+                        for(var i=0; i<users.length; i++) {
+                            html += '<p>' + users[i] + '</p>';
+                        }
+                        domEl.innerHTML = html;
+                    });
+                }
+
+                // displayUsers(body, ajaxWrapper);
+
+                var injector = {
+                    storage: {},
+                    register: function(name, resource) {
+                        this.storage[name] = resource;
+                    },
+                    resolve: function(target) {
+                        var FN_ARGS = /^function\s*[^\(]*\(\s*([^\)]*)\)/m;
+                        var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
+                        fnText = target.toString().replace(STRIP_COMMENTS, '');
+                        argDecl = fnText.match(FN_ARGS)[1].split(/, ?/g);
+                        var args = [];
+                        for(var i=0; i<argDecl.length; i++) {
+                            if(this.storage[argDecl[i]]) {
+                                args.push(this.storage[argDecl[i]]);
+                            }
+                        }
+                        return function() {
+                            target.apply({}, args);
+                        }
+                    }
+                };
+
+                injector.register('domEl', body);
+                injector.register('ajax', ajaxWrapper);
+                displayUsers = injector.resolve(displayUsers);
+                displayUsers();
+
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
