@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<title>Yoga Shops around the World</title>
+<style>
+body {font:italic 13pt/1.2em Georgia; margin:0; padding:0; background:#fcc}
+
+.container {padding:10px 0}
+.section {margin:20px auto; width:960px}
+.box1 {width:110px; float:left; display:inline}
+.box2 {width:850px; float:left; display:inline}
+.box21 {width:240px; float:left; display:inline}
+.box22 {width:610px; float:left; display:inline}
+
+[x-sticky-boundary] {overflow:auto} /*clears the floats*/
+
+h1 {margin:100px 0 70px 0; padding:0; color:#ebb; text-align:center}
+.logo {background:url(logos.png) 0 0 no-repeat; width:83px; height:83px}
+.website {display:block; text-decoration:none; width:180px; padding:15px; background:#fff; color:#caa}
+.photos {width:180px; padding:15px; background:#ebb; color:#fff; text-align:right}
+.screenshot img {border:1px solid #aaa}
+.flickr {text-align:center; background:#ebb; padding:10px 0; color:#fff}
+.flickr img {margin:10px}
+.flickr div {height:300px}
+</style>
+<script src="sticky.js" defer></script>
+</head>
+<body>
+
+<h1>Yoga Shops around the World</h1>
+
+<div class="container">
+  <div x-sticky-boundary="" class="section">
+    <div class="box1">
+      <div x-sticky="" id="logo1" class="logo">&nbsp;</div>
+    </div>
+
+    <div class="box2">
+      <div x-sticky-boundary="">
+        <div class="box21"><a href="http://www.lululemon.com" x-sticky="" class="website">
+        &ldquo;After 20 years in the surf, skate and snowboard business, founder Chip Wilson took the 
+        first commercial yoga class offered in Vancouver and found the result exhilarating. 
+        The post-yoga feeling was so close to surfing and snowboarding that it seemed obvious 
+        that yoga was an ideology whose time had come (again)....&rdquo;
+        </a></div>
+        <div class="box22 screenshot"><img src="lululemon.jpg" width=608 border=0></div>
+      </div>
+
+      <div x-sticky-boundary="">
+        <div class="box21"><div x-sticky="" class="photos">Lululemon on Flickr &gt;</div></div>
+        <div class="box22 flickr" id="flickr1"><div>Loading...</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="background:#fbb">
+  <div x-sticky-boundary="" class="section">
+    <div class="box1">
+      <div x-sticky="" class="logo" style="background-position:100% 0">&nbsp;</div>
+    </div>
+
+    <div class="box2">
+      <div x-sticky-boundary="">
+        <div class="box21"><a id="bobo" href="http://www.prana.com" x-sticky="" class="website">
+        &ldquo;We started in 1992 making clothing that worked well for climbing and yoga. It turned 
+        out that the clothing worked well for lots of other passions too, so we added new products 
+        with "purpose" in mind and scoured the world for design inspiration...&rdquo;
+        </a></div>
+        <div class="box22 screenshot"><img src="prana.jpg" width=608 border=0></div>
+      </div>
+
+      <div x-sticky-boundary="">
+        <div class="box21"><div x-sticky="" class="photos">Prana on Flickr &gt;</div></div>
+        <div class="box22 flickr" id="flickr2"><div>Loading...</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div x-sticky-boundary="" class="section">
+    <div class="box1">
+      <div x-sticky="" class="logo" style="background-position:0 100%">&nbsp;</div>
+    </div>
+
+    <div class="box2">
+      <div x-sticky-boundary="">
+        <div class="box21"><a href="http://www.th3.ca" x-sticky="" class="website">
+        &ldquo;Each yoga shirt and yoga pants is made with a strong and flexible nylon fabric with approximately 
+        14% Lycra added for stretchability and recovery. It is a careful balance that ensures excellent 
+        weight and strength ratio. We use Teflon fabric protector technology in our fabric, which 
+        increases the breathing and cooling performance of the fabric...&rdquo;
+        </a></div>
+        <div class="box22 screenshot"><img src="th3.jpg" width=608 border=0></div>
+      </div>
+
+      <div x-sticky-boundary="">
+        <div class="box21"><div x-sticky="" class="photos">TH3 on Flickr &gt;</div></div>
+        <div class="box22 flickr" id="flickr3"><div>Loading...</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="background:#fbb">
+  <div x-sticky-boundary="" class="section">
+    <div class="box1">
+      <div x-sticky="" class="logo" style="background-position:100% 100%">&nbsp;</div>
+    </div>
+
+    <div class="box2">
+      <div x-sticky-boundary="">
+        <div class="box21"><a href="http://www.zobha.com" x-sticky="" class="website">
+        &ldquo;The Zobha design team works hard to give fitness enthusiasts far and wide access to high quality 
+        activewear that inspires them to push their limits and go the extra mile with every workout. Now 
+        we're sharing a few tips so you can give your hard working fitness gear a shot at some extra 
+        longevity – care tips to keep your Zobha gear looking newer, longer...&rdquo;
+        </a></div>
+        <div class="box22 screenshot"><img src="zobha.jpg" width=608 border=0></div>
+      </div>
+
+      <div x-sticky-boundary="">
+        <div class="box21"><div x-sticky="" class="photos">Zobha on Flickr &gt;</div></div>
+        <div class="box22 flickr" id="flickr4"><div>Loading...</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="font-size:0.8em; color:#fff; text-align:center; height:3em">Copyright 2013</div>
+
+<script>
+function $(id) {return document.getElementById(id)}
+function getImages(o) {
+  var arr = [], list = o.items;
+  for(var i=0; i<list.length && i<6; i++) {
+    arr[i] = "<img src='" + list[i].media.m + "' width=240 border=0>";
+  }
+  return arr.join(" ");
+}
+function cf1(o) {$("flickr1").innerHTML = getImages(o)}
+function cf2(o) {$("flickr2").innerHTML = getImages(o)}
+function cf3(o) {$("flickr3").innerHTML = getImages(o)}
+function cf4(o) {$("flickr4").innerHTML = getImages(o)}
+
+var url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=cf";
+var urls=[
+  url + "1&tags=lululemon,yoga",
+  url + "2&tags=prana,yoga",
+  url + "3&tags=th3,yoga",
+  url + "4&tags=zobha,yoga"
+];
+for(var i=0;i<urls.length;i++) document.body.appendChild(document.createElement("script")).src = urls[i];
+</script>
+
+</body>
+</html>

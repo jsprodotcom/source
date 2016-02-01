@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>To Do</h1>
+		
+		<script src="lib/jquery-1.9.0.min.js"></script>
+		<script src="lib/underscore-min.js"></script>
+		<script src="lib/backbone-min.js"></script>
+		<script src="src/app-todos.js"></script>
+		<script>
+			$(function () {
+				var todos = new todoApp.Todos();
+				todos.fetch();
+				var list = new todoApp.TodosList({collection: todos});
+				$("body").append(list.el);
+			})
+		</script>
+	</body>
+</html>

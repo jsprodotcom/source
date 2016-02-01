@@ -1,0 +1,70 @@
+
+html, body
+{
+	background:#fff;
+	color:#000;
+	font-size:100%;
+}
+body
+{
+	padding:15% 10px 50% 10px;
+}
+
+nav
+{
+	display:block;
+	margin-bottom:2em;
+}
+
+details
+{
+	display:block;
+	margin-bottom:1em;
+	
+}
+details:last-child
+{
+	margin-bottom:0;
+}
+details details
+{
+	margin-top:0.5em;
+	font-size:0.85em;
+}
+
+details summary
+{
+	display:block;
+	padding:0.25em;
+	border:2px solid gray;
+	background:#f2f2f2;
+	cursor:default;
+}
+details summary[tabindex]
+{
+	cursor:pointer;
+}
+details summary span.twisty
+{
+	display:inline-block;
+	width:1em;
+	margin-right:0.6em;
+	font-size:0.8em;
+}
+
+details div
+{
+	display:block;
+	padding:0.5em;
+
+	border:2px solid gray;
+	border-top:none;
+}
+details div[aria-expanded="false"]
+{
+	display:none;
+}
+details div p
+{
+	margin:0;
+}

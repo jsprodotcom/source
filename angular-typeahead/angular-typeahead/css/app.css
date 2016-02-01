@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+*, h1, h2, h3, h4,h5,h6,p,span,div{
+font-family: 'Open Sans', sans-serif;
+margin: 0px;
+padding: 0px;
+}
+
+body{
+	/*background: #E5E1D1 url("../img/back.jpg") center center fixed repeat;
+	background-size: 100%;*/
+}
+
+.container{
+	width: 750px;
+	margin:auto;
+	text-align: center;
+	background: #FFF;
+	opacity: 0.95;
+	padding: 40px 10px;
+	border: 1px solid #CCC;
+	box-shadow: 0px 0px 15px #CCC;
+	margin-top: 40px;
+}
+
+h1{
+	color: #C44741;
+}
+
+.loading_div{
+	display: block;
+	margin: 10px 0px;
+}
+
+input{
+	padding: 10px;
+	font-size: 22px;
+	margin: 20px 0 0 0;
+	border-radius: 20px;
+	border: 2px solid #C44741;
+	outline: none;
+}
+
+.item{
+	width: 400px;
+	margin: auto;
+	text-align: left;
+	margin-top: 10px;
+	background: #F2F2F2;
+	padding: 10px;
+	box-shadow: 0px 0px 5px #CCC;
+}
+
+.item.title{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.subtitle{
+	font-size: 14px;
+	color: #444;
+}
+.active{
+	background-color: #C44741;
+	color:#f2f2f2;
+}

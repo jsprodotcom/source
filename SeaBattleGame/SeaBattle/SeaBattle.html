@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+   <head>
+      <title>
+         Sea Battle 1.0
+      </title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-5">
+
+      <script type="text/javascript"
+              src="http://code.jquery.com/jquery-1.7.2.min.js">
+      </script>
+
+      <script language="javascript" src="jquery.hotkeys.js" type="text/javascript">
+      </script>
+
+      <script src="SeaBattle.js">
+      </script>
+   </head>
+
+   <body style="text-align: center">
+      <p>
+      <h2>
+        SeaBattle 1.0
+      </h2>
+
+      <script>
+         SeaBattle.init(800, 480);
+
+         // The following function is courtesy of Opera Engineer Erik Mіller -- see 
+         // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating.
+
+         (function()
+          {
+             var lastTime = 0;
+             var vendors = ['ms', 'moz', 'webkit', 'o'];
+             for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) 
+             {
+                window.requestAnimationFrame = window[vendors[x]+
+                                               'RequestAnimationFrame'];
+                window.cancelRequestAnimationFrame = window[vendors[x]+
+                                                     'CancelRequestAnimationFrame'];
+             }
+
+             if (!window.requestAnimationFrame)
+             {
+                var f = function(callback, element) 
+                        {
+                           var currTime = new Date().getTime();
+                           var timeToCall = Math.max(0, 16-(currTime-lastTime));
+                           var id = window.setTimeout(function() 
+                                                      { 
+                                                         callback(currTime+timeToCall);
+                                                      }, timeToCall);
+                           lastTime = currTime+timeToCall;
+                           return id;
+                        };
+                window.requestAnimationFrame = f;
+             }
+
+             if (!window.cancelAnimationFrame)
+                window.cancelAnimationFrame = function(id) 
+                                              {
+                                                 clearTimeout(id);
+                                              };
+          }());
+
+         (function gameloop()
+          {
+             SeaBattle.update();
+             requestAnimationFrame(gameloop);
+             SeaBattle.draw();
+          })();
+      </script>
+
+      <p>
+      You might have to press the Tab key or click the canvas to give it 
+      keyboard focus.
+
+      <p>
+      Press left arrow or right arrow to move the ship left or right. Press
+      the spacebar to fire a depth charge at the sub.
+   </body>
+</html>

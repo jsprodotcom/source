@@ -1,0 +1,16 @@
+	<hr/>
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-3">
+			 <input type="text" class="form-control input-lg" ng-model="broadcastName" placeholder="Type your broadcast name here"/>
+		</div>
+		<div class="col-xs-5">	 
+			 <button class="btn btn-lg btn-success" ng-click="startBroadcast()" ng-disabled='isButtonEnabled()'>Start</button>
+		</div>	
+	</div>	
+	<h1 class="text-center">Write Something. . .</h1>
+    <div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<div id="editor" demo-editor model="broadcast" class="well">
+	    	</div>
+		</div>
+	</div>

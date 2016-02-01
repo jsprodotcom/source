@@ -1,0 +1,4 @@
+table { border-collapse: collapse; }
+td, th { padding: .3em; border: 1px #ccc solid; }
+thead { background: #fc9; }
+table,form,h3{margin:1em;}

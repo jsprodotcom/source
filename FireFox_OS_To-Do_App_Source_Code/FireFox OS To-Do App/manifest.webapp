@@ -1,0 +1,15 @@
+{
+          "version": 1.0,
+          "name": "ToDo App",
+          "description": "App to make a note of to-do tasks",
+          "launch_path": "/index.html",
+          "developer": {
+            "name": "Preetish",
+            "url": "http://Preetish.Me"
+          },
+          	"icons": {
+        "512": "/img/icon-512.png",
+        "128": "/img/icon-128.png"
+      },
+          "default_locale": "en"
+}

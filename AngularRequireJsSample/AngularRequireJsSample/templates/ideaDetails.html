@@ -1,0 +1,36 @@
+<div class="row">
+    <h3>{{ideaDetails.name}}</h3>
+    <br/>
+    <div class="col-md-12">
+       Description: {{ideaDetails.description}}
+    </div>
+</div>
+<br/>
+<div class="row">
+        <div class="col-md-6">Technologies:</div>
+        <div class="col-md-6">{{ideaDetails.technologies}}</div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-6">Target Platforms:</div>
+    <div class="col-md-6">{{ideaDetails.platform}}</div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-6">Status:</div>
+    <div class="col-md-6">{{ideaDetails.status}}</div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-6">Vacancies:</div>
+    <div class="col-md-6">{{ideaDetails.devsNeeded}} <a ng-href="mailto:{{ideaDetails.contactMailId}}" ng-show="ideaDetails.devsNeeded>0">Interested?</a> </div>
+</div>
+</div>
+<br/>
+<br/>
+<div class="row">
+    <h4>Comments:</h4>
+    <div class="col-md-8" ng-repeat="comment in ideaDetails.comments">
+        <b>{{comment.name}}</b> says <span>{{comment.message}}</span>
+    </div>
+</div>

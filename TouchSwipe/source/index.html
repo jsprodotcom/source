@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<style>
+img {    /*100% width to scale the height proportionately*/
+    width: 100%;
+    margin: 0;
+}
+
+.frame {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
+}
+
+.pictures {
+    position: absolute;
+    width: 400%;    /*change accordingly*/
+    left: 0%;
+}
+
+.pictures:after {
+    content: "\0020";
+    display: none;
+    height: 0;
+}
+
+.pictures .pic {
+    width: 25%; /*change with respect to .pictures*/
+    float: left;
+}
+
+</style>
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no" />
+</head>
+
+<body>
+
+<div style="margin-left: 50px; width: 330px; height: 200px;">
+    <div class="frame" id="target">
+        <div class="pictures">
+            <div class="pic"><img src="rexy.jpg" /></div>
+            <div class="pic"><img src="xena.jpg" /></div>
+            <div class="pic"><img src="xenaagain.jpg" /></div>
+            <div class="pic"><img src="rexyagain.jpg" /></div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="jquery.src.js"></script>
+<script src="touchswipe.js"></script>
+<script>
+/*global $, document */
+$(document).ready(function () {
+  'use strict';
+
+  var target = $('#target'),
+    pictures = $('.pictures', target),
+    MAX_LEFT = -990,
+    MAX_RIGHT = 0,
+    currPos = 0,
+    cb = {
+      swiping: function (displacement) {
+        currPos += displacement;
+        if (currPos > MAX_RIGHT) {
+          currPos = MAX_RIGHT;
+        } else if (currPos < MAX_LEFT) {
+          currPos = MAX_LEFT;
+        }
+        pictures.css('left', currPos + 'px');
+      }
+    };
+
+  target.swiper(cb);
+});
+
+</script>
+</html>
+

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8" />
+
+	<title>ARIA Drag and Drop Example</title>
+
+	<!-- drag and drop example stylesheet -->
+	<link rel="stylesheet" href="dnd.css" media="screen,projection" type="text/css" />
+
+	<!-- additional aria tooltips -->
+	<link rel="stylesheet" type="text/css" href="dnd-tooltips.css" media="screen,projection" />
+
+</head>
+<body>
+
+
+	<!-- main structural heading -->
+	<h1 class="structural-label" id="main-heading">ARIA Drag and Drop Example</h1>
+
+
+	<!-- example container -->
+	<div id="example">
+
+	
+		<!-- drag and drop => application container -->
+		<div role="application" aria-labelledby="main-heading" aria-describedby="instructions">
+		
+			
+			<!-- instructions for keyboard users -->
+			<ol id="instructions">
+				<li>use <kbd>Tab</kbd> to move between items</li>
+				<li>press <kbd>Space</kbd> to select an item</li>
+				<li>use <kbd>Tab</kbd> to move between drop-targets</li>
+				<li>press <kbd>Enter</kbd> or <kbd>Ctrl+M</kbd> to move the selected item into the selected drop-target</li>
+				<li>or press <kbd>Esc</kbd> to cancel and un-select the item</li>
+			</ol>
+	
+	
+			<!-- source-items selection group -->
+			<section class="source group">
+		
+				<!-- source group structural heading -->
+				<h2 class="structural-label" id="source-heading">Source group</h2>
+			
+				<!-- source group draggable items list -->
+				<ul role="list" aria-dropeffect="none" aria-labelledby="source-heading">
+					<li role="listitem" tabindex="0" aria-grabbed="false" draggable="true">Dr Dre</li>
+					<li role="listitem" tabindex="0" aria-grabbed="false" draggable="true">Tom Waits</li>
+					<li role="listitem" tabindex="0" aria-grabbed="false" draggable="true">Ozric Tentacles</li>
+				</ul>
+				
+			</section>
+			
+	
+			<!-- destination-items selection group -->
+			<section class="destination group">
+					
+				<!-- destination group structural heading -->
+				<h2 class="structural-label" id="destination-heading">Destination group</h2> 
+				
+				<!-- destination group draggable items list -->
+				<ul role="list" aria-dropeffect="none" aria-labelledby="destination-heading">
+					<li role="listitem" tabindex="0" aria-grabbed="false" draggable="true">Amy Winehouse</li>
+				</ul>
+		
+			</section>
+	
+	
+			<!-- general utiltiies + drag and drop scripting -->
+			<script src="utils.js" type="text/javascript"></script>
+			<script src="dnd.js" type="text/javascript"></script>
+		
+		
+		</div>
+		<!-- / drag and drop application container -->
+		
+
+	</div>
+	<!-- / example container -->
+
+
+</body>
+</html>

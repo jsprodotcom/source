@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="firebaseDemo">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularFire Demo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" data-semver="1.2.16"></script>
+  <script src="https://code.angularjs.org/1.2.16/angular-sanitize.js" data-semver="1.2.16"></script>
+  <script src="https://code.angularjs.org/1.2.16/angular-route.js" data-semver="1.2.16"></script>
+  <script src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script> 
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <div class="container"> <br/> 		
+	<div class="row">
+		<div class="col-xs-5 col-xs-offset-1 text-right">
+			<a class="btn btn-lg btn-primary" href="/write">Write Something</a>
+		</div>
+		
+		<div class="col-xs-5 text-left">
+			<a  class="btn btn-lg btn-success" href="/view">View a Broadcast</a>
+		</div>
+	</div>	  
+    <div ng-view></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p A demo of the Beacon API. Click the button to unload this page.
+  
+  form(method="get")
+    input(type="submit" value="Unload")
+  
+  script(src="/javascripts/beacon_demo.js")

@@ -1,0 +1,254 @@
+/*******************************************************************************
+ html5+aria drag and drop styling
+ ------------------------------------------------------------------------------
+*******************************************************************************/
+
+
+
+/* canvas and resets */
+html, body, div, h1, h2, h3, p, blockquote, 
+span, em, b, i, strong, abbr, dfn, cite, q, 
+form, fieldset, legend, label, 
+table, thead, tfoot, tbody, tr, td, th, 
+ul, ul li, dl, dt, dd, img
+{
+	padding:0;
+	margin:0;
+	list-style-type:none;
+}
+img, fieldset, abbr
+{
+	border:none;
+	cursor:default;
+}
+html, body
+{
+	font:normal normal normal 100%/1.5 verdana,sans-serif;
+	background:#f5f5f5;
+	color:#505050;
+}
+kbd
+{
+	font:normal normal normal 1em "american typewriter", courier, monospace;
+	color:#000;
+}
+.structural-label
+{
+	position:absolute;
+	left:-1000em;
+}
+
+
+
+
+
+
+
+/* master application container */
+[role="application"]
+{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	display:block;
+	display:table;
+	padding:20px 0 0 20px;
+	margin:0 auto;
+}
+
+
+
+
+
+
+
+/* instructions for keyboard users */
+#instructions
+{
+	margin:0 40px 20px 0;
+}
+
+
+
+
+
+
+
+/* selection groups */
+.group
+{
+	position:relative; 
+	float:left;
+	
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	display:block;
+	margin:0 20px 20px 0;
+}
+
+
+
+
+
+
+
+/* group title *//*
+.group > h2
+{
+	display:block;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin:0 auto 3px auto;
+	padding:9px 15px 5px 15px;
+	white-space:nowrap;
+	
+	border:none;
+	border-radius:10px 10px 3px 3px;
+
+	text-align:center;
+	font:normal normal normal 1.3em/1.2 helvetica,sans-serif;
+	text-shadow:0 1px 2px rgba(255,255,255,0.5);
+	background:rgba(0,0,0,0.065);
+	color:#707070;
+	
+	box-shadow:inset 0 -0.75em 0.7em rgba(0,0,0,0.015), 0 1px 1px rgba(0,0,0,0.2);
+} */
+
+
+
+
+
+
+
+/* group lists */
+[role="list"]
+{
+	position:relative;
+	clear:left;
+	
+	display:block;
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+	width:395px;
+	height:275px;
+	
+	padding:15px 0 0 15px;
+	
+	border-radius:3px 3px 15px 15px;
+	border-radius:15px;
+	
+	background:rgba(0,0,0,0.05);
+	
+	box-shadow:inset 0 1px 2px 2px rgba(0,0,0,0.1);
+}
+
+
+/* group list state when it's an active ARIA drop-target */
+.group > [role="list"]:not([aria-dropeffect="none"]):focus
+{
+	outline:1px solid rgba(0,0,0,0);
+	
+	box-shadow:0 0 2px 5px rgb(250,150,0), inset 0 1px 2px 2px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+/* draggable list items */
+[role="listitem"]
+{
+	position:relative;
+	z-index:100;
+
+	float:left;
+	display:inline-block;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin:0 10px 10px 0;
+	width:120px;
+	height:80px;
+	padding:6px 10px;
+	
+	border:2px solid rgba(0,0,0,0.25);
+	border-radius:10px;
+	
+	font-size:0.9em;
+	letter-spacing:-0.08em;
+	background:rgb(170,200,250);
+	color:#456;
+	text-shadow:0 1px 2px rgba(255,255,255,0.5);
+	
+	box-shadow:0 1px 4px -1px rgba(0,0,0,0.5);
+}
+[role="listitem"] > cite
+{
+	display:block;
+	margin:0 0 2px 0;
+	
+	font-style:normal;
+	font-weight:bold;
+}
+
+
+/* webkit-specific pseudo-class for the drag-image 
+   which we can use to add a touch of opacity, as firefox does natively */
+[role="listitem"]:-webkit-drag
+{
+	opacity:0.75;
+}
+
+
+/* source group list items */
+.source.group [role="listitem"]
+{
+}
+
+
+/* destination group list items */
+.destination.group [role="listitem"]
+{
+}
+
+
+/* hover / focus item state, and fixed clone state for the legacy event model */
+.group [role="listitem"]:hover, 
+.group [role="listitem"]:focus,
+.group [role="listitem"].dragclone
+{
+	outline:1px solid rgba(0,0,0,0);
+	cursor:move;
+
+	-webkit-box-shadow:0 0 2px 4px rgb(100,150,250), 0.04em 0.04em 0.1em rgba(0,0,0,0.5);
+	-moz-box-shadow:0 0 2px 4px rgb(100,150,250), 0.04em 0.04em 0.1em rgba(0,0,0,0.5);
+	box-shadow:0 0 2px 4px rgb(100,150,250), 0.04em 0.04em 0.1em rgba(0,0,0,0.5);
+}
+
+
+/* aria-grabbed item state */
+.group [role="listitem"][aria-grabbed="true"]
+{
+	-webkit-box-shadow:0 0 2px 4px rgb(0,200,0), 0.04em 0.04em 0.1em rgba(0,0,0,0.5);
+	-moz-box-shadow:0 0 2px 4px rgb(0,200,0), 0.04em 0.04em 0.1em rgba(0,0,0,0.5);
+	box-shadow:0 0 2px 4px rgb(0,200,0), 0.04em 0.04em 0.1em rgba(0,0,0,0.5);
+	
+	background:rgb(150,250,150);
+	color:#464;
+}
+
+
+/* arai-grabbed de-selection transition */
+.group [role="listitem"][aria-grabbed="false"]
+{
+	-o-transition:background-color 1s;
+}
+
+
+
+
+
